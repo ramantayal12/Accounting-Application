@@ -1,6 +1,4 @@
 
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,6 +7,7 @@ import java.sql.*;
 
 
 class login extends my_frame implements ActionListener {
+
     JLabel welcomeText;
     JLabel welcomeText2;
     JLabel userName;
@@ -22,37 +21,37 @@ class login extends my_frame implements ActionListener {
         super("Login Page");
         setLayout(null);
 
-        font1 = new Font("Comic Sans" , Font.BOLD,50);
+        font1 = new Font("Comic Sans" , Font.BOLD,25);
         font2 = new Font("Comic Sans" , Font.BOLD,25);
-        welcomeText = new JLabel("WELCOME");
-        welcomeText2 = new JLabel("Please login to continue...");
+        welcomeText = new JLabel("WELCOME to Billing Application");
+        welcomeText2 = new JLabel("Please Login");
         welcomeText.setFont(font1);
         add(welcomeText);
-        welcomeText.setBounds(20,20,500,200);
-        welcomeText2.setBounds(20,50,300,200);
+        welcomeText.setBounds(200,20,500,100);
+        welcomeText2.setBounds(200,120,300,100);
         welcomeText2.setFont(font2);
         add(welcomeText2);
 
         userName = new JLabel("Username :");
-        userName.setBounds(400,20,500,200);
+        userName.setBounds(200,220,500,100);
         userName.setFont(font2);
         passWord = new JLabel("Password :");
-        passWord.setBounds(400,60,500,200);
+        passWord.setBounds( 200,340,500,100);
         passWord.setFont(font2);
         add(userName);
         add(passWord);
 
         userText = new JTextField(20);
-        userText.setBounds(550,115,200,20);
+        userText.setBounds(200,320,200,20);
         passwordField = new JPasswordField(20);
-        passwordField.setBounds(550,155,200,20);
+        passwordField.setBounds( 200,440,200,20);
         add(userText);
         add(passwordField);
 
         submit = new JButton("Login");
         add(submit);
         submit.addActionListener(this);
-        submit.setBounds(500,185,100,38);
+        submit.setBounds( 200,460,100,38);
     }
 
 
@@ -79,8 +78,8 @@ class login extends my_frame implements ActionListener {
 
                 dispose();
 
-            } catch (SQLException throwables ) {
-                throwables .printStackTrace();
+            } catch (SQLException throwable ) {
+                throwable.printStackTrace();
             }
         }
     }
