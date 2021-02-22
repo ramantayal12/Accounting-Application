@@ -3,7 +3,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.*;
 
 
 class login extends my_frame implements ActionListener {
@@ -69,18 +68,16 @@ class login extends my_frame implements ActionListener {
             pass = passwordField.getText();
         }
         if(userName.length() != 0 && pass.length() != 0) {
-
-
-            try {
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration_form", "root", "root");
-                Statement smt = con.createStatement();
-                ResultSet rs = smt.executeQuery("Select * from info where user_id = '"+userName+"' and password = '"+pass+"'");
-
-                dispose();
-
-            } catch (SQLException throwable ) {
-                throwable.printStackTrace();
+            if(userName.equals("root") && pass.equals("root")){
+                registration_of_customer.add_customer();
             }
+            else {
+                wrong_login_window wrw = new wrong_login_window();
+                String text = "You Entered Wrong Credentials, Please try Again ";
+                String title = "Wrong Credential ";
+                wrw.show_window(title,text);
+            }
+
         }
     }
 }
