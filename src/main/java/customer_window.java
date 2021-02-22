@@ -1,8 +1,6 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.awt.event.*;
+import java.sql.*;
 
 public class customer_window {
 
@@ -44,7 +42,8 @@ public class customer_window {
 
         Connection c = null;
         try{
-            c = DriverManager.getConnection("jdbc:sqlite3:customer_data");
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:customer_data");
             customer_window.customer();
         }
         catch( Exception e ){
@@ -93,5 +92,7 @@ public class customer_window {
 
         JFrame jf = new JFrame("Add new Customer ");
         jf.setSize(800,800);
+
+
     }
 }
