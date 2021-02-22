@@ -69,7 +69,7 @@ class login extends my_frame implements ActionListener {
         }
         if(userName.length() != 0 && pass.length() != 0) {
             if(userName.equals("root") && pass.equals("root")){
-                registration_of_customer.add_customer();
+                customer_window.show_options();
             }
             else {
                 wrong_login_window wrw = new wrong_login_window();
@@ -83,7 +83,5 @@ class login extends my_frame implements ActionListener {
 }
 
 public class login_example {
-    public static void main(String []args ){
-        login l = new login();
-    }
+
 }
