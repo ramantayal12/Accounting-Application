@@ -52,12 +52,11 @@ class login extends Component {
                 }
                 if (userName.length() != 0 && pass.length() != 0) {
                     if (userName.equals("root") && pass.equals("root")) {
-                        customer_window.show_options();
+                        options_window.show_options();
                     } else {
-                        wrong_login_window wrw = new wrong_login_window();
                         String text = "You Entered Wrong Credentials, Please try Again ";
                         String title = "Wrong Credential ";
-                        wrw.show_window(title, text);
+                        mesaage_window.show_window(title, text);
                     }
 
                 }

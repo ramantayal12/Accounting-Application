@@ -3,22 +3,22 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 
-public class customer_window {
+public class options_window {
 
 
     public static void show_options(){
 
         JFrame jf = new JFrame(" Customer Menu ");
+        JPanel jp = new JPanel( new GridLayout(3,1));
         jf.setSize(800,800);
 
         JButton but1 = new JButton("Add new Customer");
         JButton but2 = new JButton("Show Existing Customers ");
+        JButton but3 = new JButton("Create Bill ");
 
-        but1.setBounds(200,100,500,50);
-        jf.add(but1);
-
-        but2.setBounds(200,150,500,50);
-        jf.add(but2);
+        jp.add(but1);
+        jp.add(but2);
+        jp.add(but3);
 
         but1.addActionListener(new ActionListener() {
             @Override
@@ -37,6 +37,14 @@ public class customer_window {
             }
         });
 
+        but3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                generate_bill.bill_window();
+            }
+        });
+
+        jf.add(jp);
         jf.setVisible(true);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -78,16 +86,15 @@ public class customer_window {
                      statement.close();
                      c.close();
 
-                     wrong_login_window wrw = new wrong_login_window();
                      String title = "Inserted Successfully";
-                     wrw.show_window(title,title);
+                     mesaage_window.show_window(title,title);
 
                      show_options();
                  }catch(Exception ex ){
-                     wrong_login_window wrw = new wrong_login_window();
+
                      String text = ex.getMessage();
                      String title = "database issue ";
-                     wrw.show_window(title,text);
+                     mesaage_window.show_window(title,text);
                  }
              }
          });
